@@ -58,5 +58,30 @@ jobs:
       # Upload artifact
       - uses: actions/upload-artifact@v3
         with:
-          name: openwrt-binary
-          path: ~/upload/*.img.gz
+          name: ext4-combined-efi
+          path: ~/upload/*ext4-combined-efi.img.gz
+          if-no-files-found: warn
+          
+      - uses: actions/upload-artifact@v3
+        with:
+          name: ext4-combined
+          path: ~/upload/*ext4-combined.img.gz
+          if-no-files-found: warn
+          
+      - uses: actions/upload-artifact@v3
+        with:
+          name: squashfs-combined-efi
+          path: ~/upload/*squashfs-combined-efi.img.gz
+          if-no-files-found: warn
+          
+      - uses: actions/upload-artifact@v3
+        with:
+          name: squashfs-combined
+          path: ~/upload/*squashfs-combined.img.gz
+          if-no-files-found: warn
+          
+      - uses: actions/upload-artifact@v3
+        with:
+          name: All-files
+          path: ~/upload/*
+          if-no-files-found: warn
