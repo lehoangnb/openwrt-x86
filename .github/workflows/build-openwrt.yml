@@ -7,8 +7,12 @@ on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
     branches: [ "main" ]
+    paths:
+    - '.github/workflows'
   pull_request:
     branches: [ "main" ]
+    paths:
+    - '.github/workflows'
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -36,7 +40,7 @@ jobs:
           
       - run: |
          sudo chmod -R a+rw ./bin
-         ls $(pwd)/bin/openwrt* || exit 1 #return error if build error
+         ls $(pwd)/bin/*.img.gz || exit 1 #return error if build error
          #gzip -d --force ./bin/rootfs-squashfs.img.gz || true
          #docker run --rm \
          #  -v $(pwd)/bin:/openwrt \
@@ -53,4 +57,4 @@ jobs:
       - uses: actions/upload-artifact@v3
         with:
           name: openwrt-binary
-          path: $(pwd)/bin/openwrt*.tar.gz
+          path: $(pwd)/bin/*.img.gz
