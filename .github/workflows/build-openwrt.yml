@@ -41,6 +41,8 @@ jobs:
       - run: |
          sudo chmod -R a+rw ./bin
          ls $(pwd)/bin/*.img.gz || exit 1 #return error if build error
+         mkdir -p ~/upload
+         cp $(pwd)/bin/*.img.gz ~/upload
          #gzip -d --force ./bin/rootfs-squashfs.img.gz || true
          #docker run --rm \
          #  -v $(pwd)/bin:/openwrt \
@@ -57,4 +59,4 @@ jobs:
       - uses: actions/upload-artifact@v3
         with:
           name: openwrt-binary
-          path: $(pwd)/bin/*.img.gz
+          path: ~/upload/*.img.gz
