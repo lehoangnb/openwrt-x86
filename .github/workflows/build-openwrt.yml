@@ -59,25 +59,25 @@ jobs:
       - uses: actions/upload-artifact@v3
         with:
           name: ext4-combined-efi
-          path: ~/upload/*ext4-combined-efi.img.gz
+          path: ~/upload/bin/*ext4-combined-efi.img.gz
           if-no-files-found: warn
           
       - uses: actions/upload-artifact@v3
         with:
           name: ext4-combined
-          path: ~/upload/*ext4-combined.img.gz
+          path: ~/upload/bin/*ext4-combined.img.gz
           if-no-files-found: warn
           
       - uses: actions/upload-artifact@v3
         with:
           name: squashfs-combined-efi
-          path: ~/upload/*squashfs-combined-efi.img.gz
+          path: ~/upload/bin/*squashfs-combined-efi.img.gz
           if-no-files-found: warn
           
       - uses: actions/upload-artifact@v3
         with:
           name: squashfs-combined
-          path: ~/upload/*squashfs-combined.img.gz
+          path: ~/upload/bin/*squashfs-combined.img.gz
           if-no-files-found: warn
           
       - uses: actions/upload-artifact@v3
