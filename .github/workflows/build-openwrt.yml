@@ -42,7 +42,7 @@ jobs:
          sudo chmod -R a+rw ./bin
          ls $(pwd)/bin/*.img.gz || exit 1 #return error if build error
          mkdir -p ~/upload
-         rsync -anv $(pwd)/bin ~/upload
+         cp -rf $(pwd)/bin ~/upload
          #gzip -d --force ./bin/rootfs-squashfs.img.gz || true
          #docker run --rm \
          #  -v $(pwd)/bin:/openwrt \
