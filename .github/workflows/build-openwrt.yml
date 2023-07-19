@@ -21,7 +21,6 @@ jobs:
     timeout-minutes: 10
 
     steps:
-      
       - uses: actions/checkout@v3
        
       - uses: lehoangnb/openwrt-imagebuilder-action@main
@@ -49,3 +48,9 @@ jobs:
          #      -nic user -nic user  \
          #      -drive file=/openwrt/rootfs-squashfs.img,if=virtio,format=raw  \
          #      -append "root=/dev/vda"
+
+      # Upload artifact
+      - uses: actions/upload-artifact@v3
+        with:
+          name: openwrt-binary
+          path: $(pwd)/bin/openwrt*.tar.gz
